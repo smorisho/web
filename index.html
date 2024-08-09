@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Tee Official Music Profile</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        header {
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        header h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translatey(0px); }
+            50% { transform: translatey(-10px); }
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .bio {
+            position: relative;
+            overflow: hidden;
+        }
+        .bio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: skewX(-30deg);
+            transition: left 0.5s ease;
+        }
+        .bio:hover::before {
+            left: 100%;
+        }
+        .contact, .shows {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        .profile-image {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .profile-image:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        a:hover {
+            transform: scale(1.1);
+        }
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: 10px;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        #payment-request-button {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .payment-section {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: pulse 2s infinite;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .social-icon, .streaming-icon {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s, filter 0.3s;
+        }
+        .social-icon:hover, .streaming-icon:hover {
+            transform: scale(1.2);
+            filter: brightness(1.2);
+        }
+        .streaming-platforms {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* Color Schemes */
+        .scheme-1 {
+            background: linear-gradient(135deg, #87ceeb, #b0e0e6); /* Sky blue */
+            color: #333;
+        }
+        .scheme-1 header, .scheme-1 footer {
+            background-color: #4682b4;
+            color: #f0f8ff;
+        }
+        .scheme-1 a {
+            color: #4682b4;
+        }
+        .scheme-2 {
+            background: linear-gradient(135deg, #e0ffff, #f5deb3); /* Light blue and gold */
+            color: #333;
+        }
+        .scheme-2 header, .scheme-2 footer {
+            background-color: #b8860b;
+            color: #e0ffff;
+        }
+        .scheme-2 a {
+            color: #b8860b;
+        }
+        .scheme-3 {
+            background: linear-gradient(135deg, #98fb98, #ffa07a); /* Light green and orange */
+            color: #333;
+        }
+        .scheme-3 header, .scheme-3 footer {
+            background-color: #ff8c00;
+            color: #98fb98;
+        }
+        .scheme-3 a {
+            color: #ff8c00;
+        }
+        .scheme-4 {
+            background: linear-gradient(135deg, #b0c4de, #4682b4); /* Blue-toned gradient */
+            color: #333;
+        }
+        .scheme-4 header, .scheme-4 footer {
+            background-color: #1e90ff;
+            color: #b0c4de;
+        }
+        .scheme-4 a {
+            color: #1e90ff;
+        }
+    </style>
+</head>
+<body class="scheme-1">
+    <header>
+        <h1>Bank Tee Official Music Profile</h1>
+        <button onclick="changeScheme(1)">Sky Blue</button>
+        <button onclick="changeScheme(2)">Light Blue & Gold</button>
+        <button onclick="changeScheme(3)">Light Green & Orange</button>
+        <button onclick="changeScheme(4)">Blue-toned Gradient</button>
+    </header>
+    <section class="bio">
+        <h2>About Me</h2>
+        <img src="DSC05397.JPG" alt="Bank Tee Profile Picture" class="profile-image">
+        <p>Bank Tee is a dynamic international artist celebrated for his ability to blend the storytelling essence of country music with the rhythmic energy of hip-hop and the soulful depth of R&B. With a sound that defies traditional genre boundaries, Bank Tee has captivated audiences around the globe, delivering performances that resonate with a wide array of musical tastes. His music, whether a heartfelt ballad or an electrifying anthem, reflects a profound passion for connecting with listeners through authentic and innovative artistry. As a versatile musician, Bank Tee continues to push the envelope, creating a unique musical experience that speaks to the heart and soul of his fans.</p>
+        <p>Connect with me on social media:</p>
+        <ul>
+            <li>
+                <a href="https://www.instagram.com/bankteeofficial/" target="_blank" onclick="openApp('instagram://user?username=bankteeofficial', this.href)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon"> @bankteeofficial
+                </a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/@bankteeofficiall" target="_blank" onclick="openApp('tiktok://user/@bankteeofficiall', this.href)">
+                    <img src="tiktok logo.jpeg" alt="TikTok" class="social-icon"> @bankteeofficiall
+                </a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/@BankTeeOfficial" target="_blank" onclick="openApp('vnd.youtube://www.youtube.com/@BankTeeOfficial', this.href)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" class="social-icon"> Bank Tee Official
+                </a>
+            </li>
+        </ul>
+        <div class="streaming-platforms">
+            <a href="https://open.spotify.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" class="streaming-icon">
+            </a>
+            <a href="https://music.apple.com" target="_blank">
+                <img src="apple logo.png" alt="Apple Music" class="streaming-icon">
+            </a>
+            <a href="https://soundcloud.com" target="_blank">
+                <img src="soundcloud logo.png" alt="SoundCloud" class="streaming-icon">
+            </a>
+        </div>
+    </section>
+    <section class="shows">
+        <h2>Upcoming Shows</h2>
+        <ul>
+            <li>Show 1: Date, Venue</li>
+            <li>Show 2: Date, Venue</li>
+            <!-- Add more shows as needed -->
+        </ul>
+    </section>
+    <section class="contact">
+        <h2>Contact Information</h2>
+        <p><a href="mailto:Bankteeofficial@gmail.com">Bankteeofficial@gmail.com</a></p>
+        <p><a href="tel:+18156084950">815-608-4950</a></p>
+    </section>
+    <section class="support payment-section">
+        <h2>Support My Music</h2>
+        <p>If you enjoy my music and want to support me, consider making a donation.</p>
+        <div id="payment-request-button"></div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Bank Tee. All rights reserved.</p>
+    </footer>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        function openApp(appUrl, webUrl) {
+            window.location = appUrl;
+            setTimeout(function() {
+                window.location = webUrl;
+            }, 500);
+        }
+
+        var stripe = Stripe('pk_test_51PlvIFBqKTGxf273LZSa6GQwOMCSjnqpCdXhMHGC6tpzJvRccWOefKEpx9dp6xFAYDfB4eeOkn9A84iFOX6kTHcQ008gTks152');
+
+        var paymentRequest = stripe.paymentRequest({
+            country: 'US',
+            currency: 'usd',
+            total: {
+                label: 'Support Bank Tee',
+                amount: 500, // Amount in cents
+            },
+            requestPayerName: true,
+            requestPayerEmail: true,
+        });
+
+        var elements = stripe.elements();
+        var prButton = elements.create('paymentRequestButton', {
+            paymentRequest: paymentRequest,
+        });
+
+        paymentRequest.canMakePayment().then(function(result) {
+            if (result) {
+                prButton.mount('#payment-request-button');
+            } else {
+                document.getElementById('payment-request-button').style.display = 'none';
+            }
+        });
+
+        function changeScheme(schemeNumber) {
+            document.body.className = 'scheme-' + schemeNumber;
+        }
+    </script>
+</body>
+</html>
